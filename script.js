@@ -33,12 +33,12 @@ let isFullscreen;
 
 $(document).ready(function(){
 
-    // Globala variabler ***********************************************
+    // Global variables ***********************************************
 
     counter = 0;
     isFullscreen = false;
 
-    // Lyssnare ********************************************************
+    // Listeners ********************************************************
 
     $("#nextQuestionBtn").click(function(){
         if(counter != questions.length){
@@ -57,18 +57,7 @@ $(document).ready(function(){
         
     });
 
-    $("#toggleFullScreenBtn").click(function(){
-        if(isFullscreen == false){
-            document.documentElement.requestFullscreen();
-            isFullscreen = true;
-        }
-        else{
-            document.documentElement.exitFullscreen();
-            isFullscreen = false;
-        }
-    }, false);
-
-    // Functions
+    // Functions *******************************************************
 
     function shuffle(){
         const amountOfQuestions = questions.length;
@@ -84,10 +73,8 @@ $(document).ready(function(){
         return nr = Math.floor(Math.random() * Math.floor(limit));
     }
 
-    // Körs vid start
+    // Runs when loaded *************************************************
     
-    
-
     $("#currentQuestion").html(counter);
     shuffle();
 

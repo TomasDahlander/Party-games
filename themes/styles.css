@@ -1,0 +1,22 @@
+body {
+  background-color: linen;
+}
+
+.row {
+  padding: 10px;
+}
+
+p {
+  font-size: 1.2em;
+  color: black;
+}
+
+footer {
+  background-color: deepskyblue;
+}
+
+.question-counter {
+  font-size: 1.7em;
+  color: black;
+  font-weight: bold;
+}

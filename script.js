@@ -25,7 +25,11 @@ let questions = [
     "Vilket är det absolut sötaste djuret?",
     "Vad är din favoritblomma?",
     "Du får in en maträtt på en resturang som inte uppfyller dina förväntningar.<br><br>Vad gör du?",
-    "Vilken är den bästa åldern?"
+    "Vilken är den bästa åldern?",
+    "Vad skulle du säga är ditt \"spirit animal\"",
+    "Du sitter på ett flygplan till ett främmande land på semester.<br><br>Vad ser du mest fram emot?",
+    "Om du magiskt skulle få lära dig ett nytt instrument imorgon, vilket skulle det vara?",
+    "Vilket ytterligare språk än dom du kan skulle du vilja kunna prata flytande?"
 ];
 
 let counter;

@@ -29,7 +29,9 @@ let questions = [
     "Vad skulle du säga är ditt \"spirit animal\"",
     "Du sitter på ett flygplan till ett främmande land på semester.<br><br>Vad ser du mest fram emot?",
     "Om du magiskt skulle få lära dig ett nytt instrument imorgon, vilket skulle det vara?",
-    "Vilket ytterligare språk än dom du kan skulle du vilja kunna prata flytande?"
+    "Vilket ytterligare språk än dom du kan skulle du vilja kunna prata flytande?",
+    "Om du hade fått välja ett annat yrke i ditt liv, vad hade det varit?",
+    "Du är på ett kalas med ett nytt umgänge och det finns bara en tårtbit kvar som du är sugen på.<br><br>Vad gör du?"
 ];
 
 let counter;

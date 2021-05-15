@@ -29,12 +29,14 @@ let questions = [
 ];
 
 let counter;
+let isFullscreen;
 
 $(document).ready(function(){
 
     // Globala variabler ***********************************************
 
     counter = 0;
+    isFullscreen = false;
 
     // Lyssnare ********************************************************
 
@@ -55,6 +57,17 @@ $(document).ready(function(){
         
     });
 
+    $("#toggleFullScreenBtn").click(function(){
+        if(isFullscreen == false){
+            document.documentElement.requestFullscreen();
+            isFullscreen = true;
+        }
+        else{
+            document.documentElement.exitFullscreen();
+            isFullscreen = false;
+        }
+    }, false);
+
     // Functions
 
     function shuffle(){
@@ -72,6 +85,8 @@ $(document).ready(function(){
     }
 
     // Körs vid start
+    
+    
 
     $("#currentQuestion").html(counter);
     shuffle();

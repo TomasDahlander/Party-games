@@ -1,3 +1,5 @@
+// Global variables ********************************************************************************************************
+
 let questions = [
     "Hur skulle du beskriva dig själv?<br><br>Kreativ, Logisk eller Analytisk?",
     "Vad är din favorit druva och region?",
@@ -15,7 +17,6 @@ let questions = [
     "Hur många hårfärger har du haft genom livet?",
     "Vilken kroppsdel är du mest nöjd över?",
     "Vad lockar mest?<br><br>Husvagnssemester, Charterresa eller Fjällvandring.",
-    "Du köper ett stort paket glass med smakerna choklad, vanilj och jordgubbe. Vilken äter du upp först?",
     "Vilket årtionde har tillfört mest/bäst till musikvärlden?",
     "Vilken diagnos tror du att du ligger närmast?<br><br>Autism, tvångssyndrom/OCD eller tourettes.",
     "I vilken miljö ser du dig bo om 10 år?<br><br>Stadsmiljö, förort eller landsbygd?",
@@ -26,62 +27,74 @@ let questions = [
     "Vad är din favoritblomma?",
     "Du får in en maträtt på en resturang som inte uppfyller dina förväntningar.<br><br>Vad gör du?",
     "Vilken är den bästa åldern?",
-    "Vad skulle du säga är ditt \"spirit animal\"",
+    'Vad skulle du säga är ditt "spirit animal"',
     "Du sitter på ett flygplan till ett främmande land på semester.<br><br>Vad ser du mest fram emot?",
     "Om du magiskt skulle få lära dig ett nytt instrument imorgon, vilket skulle det vara?",
     "Vilket ytterligare språk än dom du kan skulle du vilja kunna prata flytande?",
     "Om du hade fått välja ett annat yrke i ditt liv, vad hade det varit?",
-    "Du är på ett kalas med ett nytt umgänge och det finns bara en tårtbit kvar som du är sugen på.<br><br>Vad gör du?"
+    "Du är på ett kalas med ett nytt umgänge och det finns bara en tårtbit kvar som du är sugen på.<br><br>Vad gör du?",
 ];
 
 let counter;
-let isFullscreen;
 
-$(document).ready(function(){
+$(document).ready(function () {
+    // Listeners ***********************************************************************************************************
 
-    // Global variables ***********************************************
-
-    counter = 0;
-    isFullscreen = false;
-
-    // Listeners ********************************************************
-
-    $("#nextQuestionBtn").click(function(){
-        if(counter != questions.length){
+    /**
+     * Listener for the next question button that increases the counter
+     * and displays that question in from the array and the current number
+     */
+    $("#nextQuestionBtn").click(function () {
+        if (counter != questions.length) {
             $("#questionArea").html(questions[counter]);
-            $("#currentQuestion").html(counter+1);
+            $("#currentQuestion").html(counter + 1);
             counter++;
         }
     });
 
-    $("#previousQuestionBtn").click(function(){
-        if(counter > 1){
+    /**
+     * Listener for the previous question button that decreases the counter
+     * and displays that question in from the array and the current number
+     */
+    $("#previousQuestionBtn").click(function () {
+        if (counter > 1) {
             counter--;
-            $("#questionArea").html(questions[counter-1]);
+            $("#questionArea").html(questions[counter - 1]);
             $("#currentQuestion").html(counter);
         }
-        
     });
 
-    // Functions *******************************************************
+    // Functions ***********************************************************************************************************
 
-    function shuffle(){
+    /**
+     * Shuffles the global array of questions in this file
+     */
+    function shuffle() {
         const amountOfQuestions = questions.length;
-        for(let i = 0; i < questions.length; i++){
-            const randomQuestionIndex = getRandomQuestionIndex(amountOfQuestions);
-            const temp = questions[i]
+        for (let i = 0; i < questions.length; i++) {
+            const randomQuestionIndex =
+                getRandomQuestionIndex(amountOfQuestions);
+            const temp = questions[i];
             questions[i] = questions[randomQuestionIndex];
             questions[randomQuestionIndex] = temp;
         }
     }
 
-    function getRandomQuestionIndex(limit){
-        return nr = Math.floor(Math.random() * Math.floor(limit));
+    /**
+     * Gets a random number between 0 and the parameter given but not included
+     * @param {int} max indicating what is the roof of the random function
+     * @returns A random int between 0 and max-1
+     */
+    function getRandomQuestionIndex(max) {
+        return (nr = Math.floor(Math.random() * Math.floor(max)));
     }
 
-    // Runs when loaded *************************************************
-    
-    $("#currentQuestion").html(counter);
-    shuffle();
+    // Runs when loaded ****************************************************************************************************
 
-})
+    counter = 0;
+    $("#currentQuestion").html(counter);
+    $("#indexfooter").html(
+        `Copyright &copy; ${new Date().getFullYear()} – Tomas Dahlander`
+    );
+    shuffle();
+});

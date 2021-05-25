@@ -60,3 +60,15 @@ footer {
     font-weight: bold;
     /* display: flex; */
 }
+
+.rule-headline {
+    font-weight: bold;
+}
+
+.rules-exit-button {
+    margin-bottom: 20px;
+}
+
+.question-area {
+    overflow: auto; /* Enable scroll if needed */
+}

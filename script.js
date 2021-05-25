@@ -76,7 +76,7 @@ $(document).ready(function () {
     /**
      * Hides the modal when clicking on the x in the Modal
      */
-    $("#modal-closer").click(function () {
+    $("#modal-closer, .rules-exit-button").click(function () {
         modal.css("display", "none");
     });
 

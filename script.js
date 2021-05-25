@@ -37,6 +37,8 @@ let questions = [
 
 let counter;
 
+let modal;
+
 $(document).ready(function () {
     // Listeners ***********************************************************************************************************
 
@@ -63,6 +65,30 @@ $(document).ready(function () {
             $("#currentQuestion").html(counter);
         }
     });
+
+    /**
+     * Displays the modal when clicking on Rules
+     */
+    $("#ruleBtn").click(function () {
+        modal.css("display", "block");
+    });
+
+    /**
+     * Hides the modal when clicking on the x in the Modal
+     */
+    $("#modal-closer").click(function () {
+        modal.css("display", "none");
+    });
+
+    /**
+     * Doesn't work but should close the modal if user click outside of rule modal
+     * @param {event} event
+     */
+    window.onclick = function (event) {
+        if (event.target == modal) {
+            modal.css("display", "none");
+        }
+    };
 
     // Functions ***********************************************************************************************************
 
@@ -92,6 +118,7 @@ $(document).ready(function () {
     // Runs when loaded ****************************************************************************************************
 
     counter = 0;
+    modal = $("#rules-modal");
     $("#currentQuestion").html(counter);
     $("#indexfooter").html(
         `Copyright &copy; ${new Date().getFullYear()} – Tomas Dahlander`

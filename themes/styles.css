@@ -72,3 +72,95 @@ footer {
 .question-area {
     overflow: auto; /* Enable scroll if needed */
 }
+
+/* Media queries */
+@media screen and (min-width: 500px) {
+    #maindiv {
+        padding: 0px 4rem;
+    }
+    .rules-exit-button {
+        margin-left: 4rem;
+        margin-right: 4rem;
+    }
+}
+
+@media screen and (min-width: 700px) {
+    #maindiv {
+        padding: 0px 8rem;
+    }
+    .modal {
+        padding: 100px 4rem;
+    }
+    .rules-exit-button {
+        margin-left: 4rem;
+        margin-right: 4rem;
+    }
+    .modal-content {
+        padding-left: 50px;
+        padding-right: 50px;
+    }
+}
+
+@media screen and (min-width: 1000px) {
+    #maindiv {
+        padding: 0px 15rem;
+    }
+    .modal {
+        padding: 100px 8rem;
+    }
+    .rules-exit-button {
+        margin-left: 5rem;
+        margin-right: 5rem;
+    }
+    .modal-content {
+        padding-left: 100px;
+        padding-right: 100px;
+    }
+}
+
+@media screen and (min-width: 1200px) {
+    #maindiv {
+        padding: 0px 20rem;
+    }
+    .modal {
+        padding: 100px 12rem;
+    }
+    .rules-exit-button {
+        margin-left: 6rem;
+        margin-right: 6rem;
+    }
+    .modal-content {
+        padding-left: 120px;
+        padding-right: 120px;
+    }
+}
+
+@media screen and (min-width: 1500px) {
+    #maindiv {
+        padding: 0px 25rem;
+    }
+    .modal {
+        padding: 100px 15rem;
+    }
+    .rules-exit-button {
+        margin-left: 9rem;
+        margin-right: 9rem;
+    }
+    .modal-content {
+        padding-left: 150px;
+        padding-right: 150px;
+    }
+}
+
+@media screen and (min-width: 1700px) {
+    #maindiv {
+        padding: 0px 30rem;
+    }
+    .modal {
+        padding: 100px 20rem;
+    }
+    .rules-exit-button {
+        margin-left: 10rem;
+        margin-right: 10rem;
+    }
+}

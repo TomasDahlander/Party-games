@@ -43,7 +43,7 @@ $(document).ready(function () {
     /**
      * Hides the modal when clicking on the x in the Modal
      */
-    $("#modal-closer, .rules-exit-button").click(function () {
+    $("#rules-modal-closer, .rules-exit-button").click(function () {
         modal.css("display", "none");
     });
 
@@ -103,6 +103,6 @@ $(document).ready(function () {
     getQuestionsArray(); // Gets the questions
     counter = 0; // initiates the questions counter
     $("#currentQuestion").html(counter);
-    modal = $("#rules-modal");
+    modal = $("#rules-modal-id");
     $("#indexfooter").html(`Copyright &copy; ${new Date().getFullYear()} – Tomas Dahlander`); // set the current year in footer
 });

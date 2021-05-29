@@ -5,12 +5,10 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Vem är du?</title>
-    <link
-      href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css"
-      rel="stylesheet"
-      integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl"
-      crossorigin="anonymous"
-    />
+    <!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" 
+    rel="stylesheet" 
+    integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" 
+    crossorigin="anonymous"> -->
     <link rel="stylesheet" href="/themes/bootstrap.min.css">
     <link rel="stylesheet" href="/themes/styles.css">
 </head>
@@ -20,17 +18,17 @@
         <!-- Info and rules links start -->
         <div class="row">
             <div class="col">
-                <span class="float-start">Lägg till fråga (kommer snart)</span>
+                <span class="float-start">Lägg till fråga</span>
                 <span id="ruleBtn" class="float-end">Regler</span>
             </div>
         </div>
         <!-- Info and rules links ends -->
 
         <!-- Rule modal start -->
-        <div id="rules-modal" class="modal">
+        <div id="rules-modal-id" class="rules-modal">
 
-            <div class="modal-content position-relative">
-                <span id="modal-closer" class="close position-absolute top-0">&times;</span>
+            <div class="rules-modal-content">
+                <span id="rules-modal-closer" class="close float-end">&times;</span>
                 <h2 class="rule-headline">Förutsättningar</h2>
                 <p>
                     Alla spelare ska ha papper och penna. 
@@ -99,7 +97,11 @@
 
         <footer id="indexfooter" class="fixed-bottom"></footer>
     </div>
-
+    <script
+            src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf"
+            crossorigin="anonymous"
+        ></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <script src="script.js"></script>
 </body>

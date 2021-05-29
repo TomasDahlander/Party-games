@@ -30,7 +30,7 @@ footer {
 }
 
 /* The Modal (background) */
-.modal {
+.rules-modal {
     display: none; /* Hidden by default */
     position: fixed; /* Stay in place */
     z-index: 1; /* Sit on top */
@@ -45,7 +45,7 @@ footer {
 }
 
 /* Modal Content */
-.modal-content {
+.rules-modal-content {
     background-color: #fefefe;
     margin: auto;
     padding: 20px;
@@ -58,11 +58,13 @@ footer {
     color: #aaaaaa;
     font-size: 28px;
     font-weight: bold;
-    /* display: flex; */
+    line-height: 0px;
+    text-align: unset !important;
 }
 
 .rule-headline {
     font-weight: bold;
+    margin-top: 20px;
 }
 
 .rules-exit-button {

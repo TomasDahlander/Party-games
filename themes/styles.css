@@ -2,10 +2,6 @@ body {
     background-color: linen;
 }
 
-.row {
-    padding: 10px;
-}
-
 p {
     font-size: 1.2em;
     color: black;
@@ -13,6 +9,12 @@ p {
 
 footer {
     background-color: deepskyblue;
+}
+
+/* Classes */
+
+.row {
+    padding: 10px;
 }
 
 .question-counter {
@@ -29,8 +31,22 @@ footer {
     width: 100%;
 }
 
-/* The Modal (background) */
+/* The Modals (background) */
 .rules-modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    padding-top: 100px; /* Location of the box */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0, 0, 0); /* Fallback color */
+    background-color: rgba(0, 0, 0, 0.4); /* Black w/ opacity */
+}
+
+.add-modal {
     display: none; /* Hidden by default */
     position: fixed; /* Stay in place */
     z-index: 1; /* Sit on top */
@@ -48,9 +64,21 @@ footer {
 .rules-modal-content {
     background-color: #fefefe;
     margin: auto;
+    margin-bottom: 40px;
     padding: 20px;
     border: 1px solid #888;
     width: 80%;
+    border-radius: 10px;
+}
+
+.add-modal-content {
+    background-color: #fefefe;
+    margin: auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%;
+    height: 75%;
+    border-radius: 10px;
 }
 
 /* The Close Button */
@@ -67,15 +95,24 @@ footer {
     margin-top: 20px;
 }
 
-.rules-exit-button {
-    margin-bottom: 20px;
+.rule-exit-button {
+    margin-bottom: 10px;
 }
 
 .question-area {
     overflow: auto; /* Enable scroll if needed */
 }
 
+/* Id */
+
+#questionsArea {
+    border-radius: 10px;
+    border-color: black;
+    margin-bottom: 10px;
+}
+
 /* Media queries */
+
 @media screen and (min-width: 500px) {
     #maindiv {
         padding: 0px 4rem;

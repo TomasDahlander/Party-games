@@ -2,9 +2,13 @@
 
 let questions;
 
-let counter;
+let questionsCounter;
 
-let modal;
+// Element variables
+
+let rulesModal;
+
+let addModal;
 
 $(document).ready(function () {
     // Listeners ***********************************************************************************************************
@@ -14,10 +18,10 @@ $(document).ready(function () {
      * and displays that question in from the array and the current number
      */
     $("#nextQuestionBtn").click(function () {
-        if (counter != questions.length) {
-            $("#questionArea").html(questions[counter].question);
-            $("#currentQuestion").html(counter + 1);
-            counter++;
+        if (questionsCounter != questions.length) {
+            $("#questionArea").html(questions[questionsCounter].question);
+            $("#currentQuestion").html(questionsCounter + 1);
+            questionsCounter++;
         }
     });
 
@@ -26,10 +30,10 @@ $(document).ready(function () {
      * and displays that question in from the array and the current number
      */
     $("#previousQuestionBtn").click(function () {
-        if (counter > 1) {
-            counter--;
-            $("#questionArea").html(questions[counter - 1].question);
-            $("#currentQuestion").html(counter);
+        if (questionsCounter > 1) {
+            questionsCounter--;
+            $("#questionArea").html(questions[questionsCounter - 1].question);
+            $("#currentQuestion").html(questionsCounter);
         }
     });
 
@@ -37,23 +41,30 @@ $(document).ready(function () {
      * Displays the modal when clicking on Rules
      */
     $("#ruleBtn").click(function () {
-        modal.css("display", "block");
+        rulesModal.css("display", "block");
+    });
+
+    $("#addBtn").click(function () {
+        addModal.css("display", "block");
     });
 
     /**
-     * Hides the modal when clicking on the x in the Modal
+     * Hides the modals when clicking on the x in the Modal or exit button at the bottom
      */
-    $("#rules-modal-closer, .rules-exit-button").click(function () {
-        modal.css("display", "none");
-    });
+    $("#rules-modal-closer, #add-modal-closer, .rule-exit-button, .add-exit-button").click(
+        function () {
+            rulesModal.css("display", "none");
+            addModal.css("display", "none");
+        }
+    );
 
     /**
      * Doesn't work but should close the modal if user click outside of rule modal
      * @param {event} event
      */
     window.onclick = function (event) {
-        if (event.target == modal) {
-            modal.css("display", "none");
+        if (event.target == rulesModal) {
+            rulesModal.css("display", "none");
         }
     };
 
@@ -100,9 +111,11 @@ $(document).ready(function () {
     }
 
     // Runs when loaded ****************************************************************************************************
-    getQuestionsArray(); // Gets the questions
-    counter = 0; // initiates the questions counter
-    $("#currentQuestion").html(counter);
-    modal = $("#rules-modal-id");
+
+    getQuestionsArray(); // Fetches the questions
+    questionsCounter = 0; // initiates the questions counter to zero
+    $("#currentQuestion").html(questionsCounter); // Set the initial visual element to the questions counter value
+    rulesModal = $("#rules-modal-id"); // sets an element variable for the rules modal
+    addModal = $("#add-modal-id"); // sets an element variable for the add modal
     $("#indexfooter").html(`Copyright &copy; ${new Date().getFullYear()} – Tomas Dahlander`); // set the current year in footer
 });

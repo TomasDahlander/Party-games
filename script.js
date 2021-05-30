@@ -10,6 +10,8 @@ let rulesModal;
 
 let addModal;
 
+let questionInputArea;
+
 $(document).ready(function () {
     // Listeners ***********************************************************************************************************
 
@@ -58,15 +60,10 @@ $(document).ready(function () {
         }
     );
 
-    /**
-     * Doesn't work but should close the modal if user click outside of rule modal
-     * @param {event} event
-     */
-    window.onclick = function (event) {
-        if (event.target == rulesModal) {
-            rulesModal.css("display", "none");
-        }
-    };
+    $("#sendBtn").click(function () {
+        questionInputArea.val("");
+        addModal.css("display", "none");
+    });
 
     // Functions ***********************************************************************************************************
 
@@ -117,5 +114,6 @@ $(document).ready(function () {
     $("#currentQuestion").html(questionsCounter); // Set the initial visual element to the questions counter value
     rulesModal = $("#rules-modal-id"); // sets an element variable for the rules modal
     addModal = $("#add-modal-id"); // sets an element variable for the add modal
+    questionInputArea = $("#questionInputArea"); // set an element variable for the question textarea input
     $("#indexfooter").html(`Copyright &copy; ${new Date().getFullYear()} – Tomas Dahlander`); // set the current year in footer
 });

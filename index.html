@@ -38,31 +38,38 @@
                 <p> 
                     En spelare börjar med att trycka fram en fråga och läsa den högt. 
                     Därefter ska läsaren av frågan skriva ner sitt svar och de övriga spelarna ska 
-                    nu skriva ner vad de tror att läsaren har skrivit. <br>
-                    Exempel: Frågan lyder "Hur många bilar har du du ägt?" därav läsaren då skriver 
+                    nu skriva ner vad de tror att läsaren har skrivit. 
+                    Frågan handlar eller utgår alltid ifrån läsarens perspektiv.
+                    <br><br>
+                    Exempel: Frågan lyder "Hur många bilar har du ägt?" därav läsaren då skriver 
                     ner "facit" på sin lapp. 
+                    <br>
                     Därefter går man varvet runt och hör vad övriga spelare har skrivit ner för gissning.
+                    <br>
                     Därefter delar läsaren ut poäng till den eller de spelare 
                     som hade rätt eller var närmast. 
                     Här har läsaren full bestämmande rätt till vem som 
                     är närmast svaret om inget svar är helt rätt.
+                    <br><br>
                     Därefter är det nästa persons tur att trycka fram nästa fråga och läsa.
                     Man spelar så länge man känner för men kör hela varv då läsaren inte kan få poäng. 
                 </p>
                 <h2 class="rule-headline">Poängutdelning</h2>
                 <p>
-                    Man kan dela ut poäng på två olika sätt beroende på vad man känner är roligast. <br>
+                    Man kan dela ut poäng på två olika sätt beroende på vad man känner är roligast. <br><br>
                     <span class="rule-headline">Alternativ 1:</span> <br>
-                    Den eller de personer som svarar rätt eller närmast får 1 poäng. <br>
+                    Den eller de personer som svarar rätt eller närmast får 1 poäng. <br><br>
                     <span class="rule-headline">Alternativ 2:</span> <br>
                     Läsaren delar ut 3 poäng till den eller de som hade rätt 
                     (eller till den som var närmst om ingen hade rätt), 
-                    2 poäng till den som var näst närmst och 1 poäng till den som var näst näst närmst.
+                    2 poäng till den som var näst närmst och 1 poäng till den som var näst näst närmst. <br><br>
+                    <span class="rule-headline">Vid 50/50 frågor:</span> <br>
+                    För dessa typer av frågor är det alltid alternativ 1 som gäller för poängutdelning. 
                 </p>
                 <h2 class="rule-headline">Förtydligande</h2>
                 <p>
                     Läsaren kan endast dela ut samma antal poäng till fler personer om de har samma svar. 
-                    Läsaren kan alltså inte dela ut 3 poäng till 2 spelare som har svarit olika. <br>
+                    Läsaren kan alltså inte dela ut 3 poäng till 2 spelare som har svarit olika. <br> (Vid poängutdelning med alternativ 2) <br>
                     (Ni får själva tolka vad som räknas som samma svar)
                 </p>
                 <button class="btn btn-info rule-exit-button">Nu kan jag reglerna</button>
@@ -79,10 +86,10 @@
                 <span id="add-modal-closer" class="close float-end">&times;</span>
                 <h2 class="rule-headline">Skicka in fråga</h2>
                 
-                <textarea id="questionsArea" class="form-control" rows="8" placeholder="Skriv fråga..."></textarea>
+                <textarea id="questionInputArea" class="form-control" maxlength="250" rows="13" placeholder="Skriv fråga..."></textarea>
 
                 <button class="btn btn-info float-start add-exit-button">Avbryt</button>
-                <button class="btn btn-info float-end">Skicka in</button>
+                <button id="sendBtn" class="btn btn-info float-end">Skicka in</button>
 
             </div>
 

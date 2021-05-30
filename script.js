@@ -106,7 +106,7 @@ $(document).ready(function () {
      * Tries to fetche questions array from database
      */
     function getQuestionsArrayFromDatabase() {
-        fetch("http://localhost:8080/question/get")
+        fetch("https://td-partygames-backend.herokuapp.com/question/get")
             .then((resp) => resp.json())
             .then((data) => setQuestions(data))
             .catch(() => getQuestionsArrayFromJsonFile());
@@ -116,7 +116,9 @@ $(document).ready(function () {
      * Fetches the questions array from a JSON file if the database could not deliver
      */
     function getQuestionsArrayFromJsonFile() {
-        console.log("I Json fetchen!");
+        alert(
+            "Databasen verkar liggar nere så vi får nöja oss med dom frågor som finns sparat i front-enden."
+        );
         fetch("/questions.json")
             .then((resp) => resp.json())
             .then((data) => setQuestions(data));
@@ -140,7 +142,7 @@ $(document).ready(function () {
             question: input,
         };
 
-        fetch("http://localhost:8080/question/add", {
+        fetch("https://td-partygames-backend.herokuapp.com/question/add", {
             method: "POST",
             body: JSON.stringify(question),
             headers: {
@@ -150,7 +152,7 @@ $(document).ready(function () {
             if (response.status == 200) {
                 alert("Tack för din fråga!");
             } else {
-                alert("Hoppsan, något gick fel...");
+                alert("Hoppsan, något gick fel med servern...");
             }
         });
     }

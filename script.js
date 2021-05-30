@@ -40,18 +40,21 @@ $(document).ready(function () {
     });
 
     /**
-     * Displays the modal when clicking on Rules
+     * Listener that displays the rules modal when clicking on rules
      */
     $("#ruleBtn").click(function () {
         rulesModal.css("display", "block");
     });
 
+    /**
+     * Listener that displays the add modal when clicking on send in question
+     */
     $("#addBtn").click(function () {
         addModal.css("display", "block");
     });
 
     /**
-     * Hides the modals when clicking on the x in the Modal or exit button at the bottom
+     * Listener that hides the modals when clicking on the x in the Modal or exit button at the bottom
      */
     $("#rules-modal-closer, #add-modal-closer, .rule-exit-button, .add-exit-button").click(
         function () {
@@ -60,9 +63,19 @@ $(document).ready(function () {
         }
     );
 
+    /**
+     * Listener for when clicking on send question button and which checks the length of the
+     * question and then either alerts error or send question to database
+     */
     $("#sendBtn").click(function () {
-        questionInputArea.val("");
-        addModal.css("display", "none");
+        const input = questionInputArea.val();
+        if (input.length >= 10) {
+            questionInputArea.val("");
+            addModal.css("display", "none");
+            sendQuestion(input);
+        } else {
+            alert("Frågan måste vara minst 10 tecken lång!");
+        }
     });
 
     // Functions ***********************************************************************************************************
@@ -90,9 +103,20 @@ $(document).ready(function () {
     }
 
     /**
-     * Fetches the questions array from a JSON file
+     * Tries to fetche questions array from database
      */
-    function getQuestionsArray() {
+    function getQuestionsArrayFromDatabase() {
+        fetch("http://localhost:8080/question/get")
+            .then((resp) => resp.json())
+            .then((data) => setQuestions(data))
+            .catch(() => getQuestionsArrayFromJsonFile());
+    }
+
+    /**
+     * Fetches the questions array from a JSON file if the database could not deliver
+     */
+    function getQuestionsArrayFromJsonFile() {
+        console.log("I Json fetchen!");
         fetch("/questions.json")
             .then((resp) => resp.json())
             .then((data) => setQuestions(data));
@@ -107,9 +131,33 @@ $(document).ready(function () {
         shuffle();
     }
 
+    /**
+     * Sends a users input to the database
+     * @param {String} input
+     */
+    function sendQuestion(input) {
+        let question = {
+            question: input,
+        };
+
+        fetch("http://localhost:8080/question/add", {
+            method: "POST",
+            body: JSON.stringify(question),
+            headers: {
+                "Content-type": "application/json",
+            },
+        }).then(function (response) {
+            if (response.status == 200) {
+                alert("Tack för din fråga!");
+            } else {
+                alert("Hoppsan, något gick fel...");
+            }
+        });
+    }
+
     // Runs when loaded ****************************************************************************************************
 
-    getQuestionsArray(); // Fetches the questions
+    getQuestionsArrayFromDatabase(); // Fetches the questions
     questionsCounter = 0; // initiates the questions counter to zero
     $("#currentQuestion").html(questionsCounter); // Set the initial visual element to the questions counter value
     rulesModal = $("#rules-modal-id"); // sets an element variable for the rules modal

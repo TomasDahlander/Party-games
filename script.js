@@ -81,6 +81,11 @@ $(document).ready(function () {
 
     // Functions ***********************************************************************************************************
 
+    /**
+     * Function that replaces newline /n with <br> to show questions as they are written
+     * @param {String} s 
+     * @returns 
+     */
     function htmlFormatter(s){
         return s.replace(/(\r\n|\r|\n)/g, '<br>');
     }

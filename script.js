@@ -68,8 +68,9 @@ $(document).ready(function () {
      * question and then either alerts error or send question to database
      */
     $("#sendBtn").click(function () {
-        const input = questionInputArea.val();
+        let input = questionInputArea.val();
         if (input.length >= 10) {
+            input = htmlFormatter(input);
             questionInputArea.val("");
             addModal.css("display", "none");
             sendQuestion(input);
@@ -79,6 +80,15 @@ $(document).ready(function () {
     });
 
     // Functions ***********************************************************************************************************
+
+    /**
+     * Function that replaces newline /n with <br> to show questions as they are written
+     * @param {String} s 
+     * @returns 
+     */
+    function htmlFormatter(s){
+        return s.replace(/(\r\n|\r|\n)/g, '<br>');
+    }
 
     /**
      * Shuffles the global array of questions in this file

@@ -33,7 +33,7 @@
         "question": "Vilken hushållssyssla slipper du helst?"
     },
     {
-        "question": "Vilket resemål har varit det mest minnesvärde?"
+        "question": "Vilket resemål har varit det mest minnesvärda?"
     },
     {
         "question": "Vilken sport/idrott tror du att du har störst chans att vinna i över samtliga i detta sällskap?"
@@ -94,5 +94,14 @@
     },
     {
         "question": "Du är på ett kalas med ett nytt umgänge och det finns bara en tårtbit kvar som du är sugen på.<br><br>Vad gör du?"
+    },
+    {
+        "question": "Om du skulle vara en hundras vilken ras skulle de vara? <br><br>Alltså vilken du tror dig vara mest lik? <br><br>(Google är tillåtet för att hitta hundrasnamn)"
+    },
+    {
+        "question": "Du ska under nästa helår jobba utomlands. <br><br>Vart ser du att det helst blir?"
+    },
+    {
+        "question": "Du får en möjlighet att helt fritt välja ett nytt yrke. Vad skulle du välja då?"
     }
 ]

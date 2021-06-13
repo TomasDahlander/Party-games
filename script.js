@@ -7,10 +7,11 @@ let questionsCounter;
 // Element variables
 
 let rulesModal;
-
 let addModal;
+let messageModal;
 
 let questionInputArea;
+let messageBoard;
 
 $(document).ready(function () {
     // Listeners ***********************************************************************************************************
@@ -56,12 +57,13 @@ $(document).ready(function () {
     /**
      * Listener that hides the modals when clicking on the x in the Modal or exit button at the bottom
      */
-    $("#rules-modal-closer, #add-modal-closer, .rule-exit-button, .add-exit-button").click(
-        function () {
-            rulesModal.css("display", "none");
-            addModal.css("display", "none");
-        }
-    );
+    $(
+        "#rules-modal-closer, #add-modal-closer, #message-modal-closer, .rule-exit-button, .add-exit-button"
+    ).click(function () {
+        rulesModal.css("display", "none");
+        addModal.css("display", "none");
+        messageModal.css("display", "none");
+    });
 
     /**
      * Listener for when clicking on send question button and which checks the length of the
@@ -83,11 +85,11 @@ $(document).ready(function () {
 
     /**
      * Function that replaces newline /n with <br> to show questions as they are written
-     * @param {String} s 
-     * @returns 
+     * @param {String} s
+     * @returns
      */
-    function htmlFormatter(s){
-        return s.replace(/(\r\n|\r|\n)/g, '<br>');
+    function htmlFormatter(s) {
+        return s.replace(/(\r\n|\r|\n)/g, "<br>");
     }
 
     /**
@@ -158,13 +160,30 @@ $(document).ready(function () {
             headers: {
                 "Content-type": "application/json",
             },
-        }).then(function (response) {
-            if (response.status == 200) {
-                alert("Tack för din fråga!");
-            } else {
-                alert("Hoppsan, något gick fel med servern...");
-            }
-        });
+        })
+            .then(function (response) {
+                if (response.status == 200) {
+                    return response.json();
+                } else {
+                    return "error";
+                }
+            })
+            .then(function (data) {
+                if (data == "error") {
+                    displayErrorMessage();
+                } else {
+                    displaySuccessMessage(data);
+                }
+            });
+    }
+
+    function displaySuccessMessage(message) {
+        messageBoard.html(message.question);
+        messageModal.css("display", "block");
+    }
+
+    function displayErrorMessage() {
+        alert("Hoppsan, något gick fel med servern...");
     }
 
     // Runs when loaded ****************************************************************************************************
@@ -174,6 +193,8 @@ $(document).ready(function () {
     $("#currentQuestion").html(questionsCounter); // Set the initial visual element to the questions counter value
     rulesModal = $("#rules-modal-id"); // sets an element variable for the rules modal
     addModal = $("#add-modal-id"); // sets an element variable for the add modal
+    messageModal = $("#message-modal-id"); // sets an element variable for the message modal
     questionInputArea = $("#questionInputArea"); // set an element variable for the question textarea input
+    messageBoard = $("#messageBoard"); // set an element variable for the message when sending in a question
     $("#indexfooter").html(`Copyright &copy; ${new Date().getFullYear()} – Tomas Dahlander`); // set the current year in footer
 });

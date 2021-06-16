@@ -115,12 +115,14 @@ $(document).ready(function () {
     }
 
     /**
-     * Tries to fetche questions array from database
+     * Tries to fetch questions array from database
      */
     function getQuestionsArrayFromDatabase() {
         fetch("https://td-partygames-backend.herokuapp.com/question/get")
             .then((resp) => resp.json())
-            .then((data) => setQuestions(data))
+            .then(function (data) {
+                setQuestions(data);
+            })
             .catch(() => getQuestionsArrayFromJsonFile());
     }
 
@@ -143,6 +145,12 @@ $(document).ready(function () {
     function setQuestions(questionsDataArray) {
         questions = questionsDataArray;
         shuffle();
+        displayThatGameIsReady();
+    }
+
+    function displayThatGameIsReady() {
+        $("#questionArea").html("Nu kan spelet börja!");
+        $("#loader").remove();
     }
 
     /**

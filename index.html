@@ -5,10 +5,10 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Vem är du?</title>
-    <!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" 
-    rel="stylesheet" 
-    integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" 
-    crossorigin="anonymous"> -->
+    <link
+        rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
     <link rel="stylesheet" href="/themes/bootstrap.min.css">
     <link rel="stylesheet" href="/themes/styles.css">
 </head>
@@ -137,8 +137,9 @@
 
         <!-- Questionarea start -->
         <div class="row question-area">
-            <p id="questionArea"></p>
+            <p id="questionArea">Vänta medans frågorna hämtas från databasen</p>
             </p>
+            <i id="loader" class="fa fa-spinner fa-pulse fa-3x fa-fw" style="font-size: 100px"></i>
         </div>
         <!-- Questionarea ends -->
 
